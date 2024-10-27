@@ -6,7 +6,7 @@ class InsufficientFunds extends Error{
 }
 
 class Wallet {
-  constructor(initialAmount = 100000) {
+  constructor(initialAmount) {
     this.currentAmount = initialAmount;
     this.totalWinnings = 0;
     this.totalLosses = 0;
@@ -44,7 +44,7 @@ class CasinoStats {
 }
 
 class Account {
-  constructor(initialAmount=10000) {
+  constructor(initialAmount) {
     this.wallet = new Wallet(initialAmount);
     this.casinoStats = new CasinoStats();
     this.rtp = 0;

@@ -10,7 +10,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-const account = new Account(100);
+const account = new Account(100000);
 const casino = new CasinoGame(3, 3, account);
 
 app.get('/api/casino/', (req, res) => {
