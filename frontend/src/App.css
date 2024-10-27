@@ -1,0 +1,61 @@
+body {
+  background: #212121;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  overflow: hidden;
+  text-align: center;
+}
+
+.animated-heading {
+  margin: 5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ff6b6b, #f3c623, #6bff6b);
+  background-size: 200%;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: moveIn 5s infinite linear, colorShift 5s infinite linear;
+}
+
+.animated-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ff6b6b, #f3c623, #6bff6b);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: moveToCenter 3s ease-out forwards, colorShift 5s infinite alternate;
+}
+
+@keyframes moveToCenter {
+  0% {
+    transform: translateX(-100%);
+  }
+  80% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes colorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.game-container{ 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 75%;
+}

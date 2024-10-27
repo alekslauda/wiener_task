@@ -1,0 +1,287 @@
+.slots-machine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+.matrix-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid lightgreen;
+  background-color: lightyellow;
+}
+
+.symbol {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  transition: transform 0.5s ease;
+}
+
+.spinning .symbol {
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.symbol.winner {
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+    font-size: 4rem;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    font-size: 4rem;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+    font-size: 3rem;
+  }
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  height: 50px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.winning-line {
+  position: absolute;
+  height: 4px;
+  width: 31%;
+  background-color: lightgreen;
+  transform: translateY(-50%);
+  z-index: 2;
+  left: 30.5rem;
+}
+
+.winning-line.l-0 {
+  top: 61%;
+}
+
+.winning-line.l-1 {
+  top: 71.5%;
+}
+
+.winning-line.l-2 {
+  top: 82%;
+}
+
+.slots-machine__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px
+}
+
+.slots-machine__actions--autoSpin {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  width: 120px;
+}
+
+.slots-machine__actions--autoSpin label {
+  color: white;
+  text-align: center;
+}
+
+.slots-machine__actions--autoSpin input[type="text"] {
+  margin: 10px;
+  padding: 10px;
+}
+
+.slots-machine__actions--autoSpinCheckBox * {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.slots-machine__actions--autoSpinCheckBox input[type="checkbox"] {
+  display: none;
+}
+
+.slots-machine__actions--autoSpinCheckBox .disableCheckbox {
+  background-color: grey;
+  --shadow: unset;
+  box-shadow: unset;
+}
+
+.slots-machine__actions--autoSpinCheckBox label {
+  --size: 50px;
+  --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+
+  position: relative;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto;
+  background-color: #14f736;
+  border-radius: 50%;
+  box-shadow: 0 var(--shadow) #b9ffb8;
+  cursor: pointer;
+  transition: 0.2s ease transform, 0.2s ease background-color,
+    0.2s ease box-shadow;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slots-machine__actions--autoSpinCheckBox label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: calc(var(--size) * .7);
+  height: calc(var(--size) * .7);
+  margin: 0 auto;
+  background-color: #fff;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: inset 0 var(--shadow) #ffbeb8;
+  transition: 0.2s ease width, 0.2s ease height;
+}
+
+.slots-machine__actions--autoSpinCheckBox label:hover:before {
+  width: calc(var(--size) * .55);
+  height: calc(var(--size) * .55);
+  box-shadow: inset 0 var(--shadow) #ff9d96;
+}
+
+.slots-machine__actions--autoSpinCheckBox label:active {
+  transform: scale(0.9);
+}
+
+.slots-machine__actions--autoSpinCheckBox .tick_mark {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: calc(var(--size) * -.05);
+  width: calc(var(--size) * .6);
+  height: calc(var(--size) * .6);
+  margin: 0 auto;
+  margin-left: calc(var(--size) * .14);
+  transform: rotateZ(-40deg);
+}
+
+.slots-machine__actions--autoSpinCheckBox .tick_mark:before,
+.slots-machine__actions--autoSpinCheckBox .tick_mark:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s ease transform, 0.2s ease opacity;
+}
+
+.slots-machine__actions--autoSpinCheckBox .tick_mark:before {
+  left: 0;
+  bottom: 0;
+  width: calc(var(--size) * .1);
+  height: calc(var(--size) * .3);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+  transform: translateY(calc(var(--size) * -.68));
+}
+
+.slots-machine__actions--autoSpinCheckBox .tick_mark:after {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(var(--size) * .1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+  transform: translateX(calc(var(--size) * .78));
+}
+
+.slots-machine__actions--autoSpinCheckBox input[type="checkbox"]:checked+label {
+  background-color: #d40711;
+  box-shadow: 0 var(--shadow) #ff92a4;
+}
+
+.slots-machine__actions--autoSpinCheckBox input[type="checkbox"]:checked+label:before {
+  width: 0;
+  height: 0;
+}
+
+.slots-machine__actions--autoSpinCheckBox input[type="checkbox"]:checked+label .tick_mark:before,
+.slots-machine__actions--autoSpinCheckBox input[type="checkbox"]:checked+label .tick_mark:after {
+  transform: translate(0);
+  opacity: 1;
+}
+
+
+.slots-machine__actions-betAmount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slots-machine__actions-betAmount label {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.slots-machine__actions-betAmount input[type="text"] {
+  width: 85%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid #4CAF50;
+  border-radius: 4px;
+}
+
+.slots-machine__actions-betAmount input[type="text"]:focus {
+  border-color: #76ff03; 
+  box-shadow: 0 0 5px rgba(118, 255, 3, 0.5);
+  outline: none;
+}
