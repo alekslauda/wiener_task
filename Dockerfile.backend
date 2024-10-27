@@ -1,0 +1,11 @@
+FROM node:14
+
+WORKDIR /app
+
+COPY backend/package.json /app/package.json
+
+RUN npm install
+
+COPY backend/ /app
+
+CMD ["npm", "run", "dev"]
