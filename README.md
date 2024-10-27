@@ -12,7 +12,10 @@ Before running the application, ensure you have the following installed:
 ## Installation & Setup
 
 1. Clone the repository
-2. Run the following command to build and start all services:
+2. cd frontend && npm install
+3. cd backend && npm install
+4. cd ..
+5. Run the following command to build and start all services:
 ```bash
 docker compose up --build
 ```
