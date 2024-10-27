@@ -33,6 +33,7 @@
 
 .spinning .symbol {
   animation: spin 0.5s linear infinite;
+  
 }
 
 @keyframes spin {
@@ -47,6 +48,7 @@
 
 .symbol.winner {
   animation: pulse 1.2s infinite;
+  background-color: #b7fbb7
 }
 
 @keyframes pulse {
@@ -88,28 +90,6 @@ button:hover {
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
-}
-
-.winning-line {
-  position: absolute;
-  height: 4px;
-  width: 31%;
-  background-color: lightgreen;
-  transform: translateY(-50%);
-  z-index: 2;
-  left: 30.5rem;
-}
-
-.winning-line.l-0 {
-  top: 61%;
-}
-
-.winning-line.l-1 {
-  top: 71.5%;
-}
-
-.winning-line.l-2 {
-  top: 82%;
 }
 
 .slots-machine__actions {

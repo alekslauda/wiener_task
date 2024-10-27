@@ -120,7 +120,6 @@ const SlotsMachine = ({ onCasinoDataUpdate, onBetAmountUpdate }) => {
                   {symbolsHash[matrix[rowIndex][colIndex]]}
                 </div>
               ))}
-              {isWinRow(colIndex) && !isSpinning && <div className={`winning-line l-${colIndex}`}></div>}
             </div>
           </React.Fragment>
         ))}
